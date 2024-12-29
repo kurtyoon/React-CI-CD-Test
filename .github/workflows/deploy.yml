@@ -41,9 +41,7 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           port: ${{ secrets.SERVER_PORT }}
           source: |
-            dist/index.html
-            dist/assets/*
-            dist/**.svg
+            dist/*
           target: github/test
 
       - name: Restart Nginx
