@@ -42,7 +42,7 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           source: |
             dist/**
-          target: /github/test
+          target: github/test
 
       - name: Restart Nginx
         uses: appleboy/ssh-action@master
