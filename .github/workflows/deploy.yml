@@ -41,7 +41,7 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           port: ${{ secrets.SERVER_PORT }}
           source: |
-            dist/*
+            dist/**
           target: github/test
 
       - name: Restart Nginx
@@ -51,4 +51,9 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           port: ${{ secrets.SERVER_PORT }}
-          script: sudo systemctl restart nginx
+          script: |
+            cd github/test/dist
+            mv * ../
+            cd ..
+            rm -rf dist
+            sudo systemctl restart nginx
